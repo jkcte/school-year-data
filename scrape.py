@@ -95,3 +95,13 @@ survival_rates = pd.DataFrame({
 
 print("\nSurvival rates of students per strand:")
 print(survival_rates)
+
+# Group by the 'Region' and 'sector' columns and sum the 'Grade 11' and 'Grade 12' columns
+grade_11_by_region_sector = enrollment.groupby(['Region', 'sector'])[['Grade 11 ABM', 'Grade 11 HUMSS', 'Grade 11 STEM', 'Grade 11 GAS', 'Grade 11 TVL', 'Grade 11 SPORTS', 'Grade 11 A&D', 'Grade 11 MARITIME']].sum()
+grade_12_by_region_sector = enrollment.groupby(['Region', 'sector'])[['Grade 12 ABM', 'Grade 12 HUMSS', 'Grade 12 STEM', 'Grade 12 GAS', 'Grade 12 TVL', 'Grade 12 SPORTS', 'Grade 12 A&D', 'Grade 12 MARITIME']].sum()
+
+print("Grade 11 enrollment by region and sector:")
+print(grade_11_by_region_sector)
+
+print("\nGrade 12 enrollment by region and sector:")
+print(grade_12_by_region_sector)

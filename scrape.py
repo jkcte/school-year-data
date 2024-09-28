@@ -72,6 +72,9 @@ most_popular_strand_summary = pd.DataFrame({
 print("Most popular strand per region with student counts per grade level:")
 print(most_popular_strand_summary)
 
+
+
+
 # --------------------survival rate of students per strand--------------------
 
 # Calculate survival rates for each strand

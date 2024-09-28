@@ -71,3 +71,24 @@ most_popular_strand_summary = pd.DataFrame({
 
 print("Most popular strand per region with student counts per grade level:")
 print(most_popular_strand_summary)
+
+# --------------------survival rate of students per strand--------------------
+
+# Calculate survival rates for each strand
+survival_rate_ABM = f'{(enrollment["Grade 12 ABM"].sum() / enrollment["Grade 11 ABM"].sum())*100:.2f}%'
+survival_rate_HUMSS = f'{(enrollment["Grade 12 HUMSS"].sum() / enrollment["Grade 11 HUMSS"].sum())*100:.2f}%'
+survival_rate_STEM = f'{(enrollment["Grade 12 STEM"].sum() / enrollment["Grade 11 STEM"].sum())*100:.2f}%'
+survival_rate_GAS = f'{(enrollment["Grade 12 GAS"].sum() / enrollment["Grade 11 GAS"].sum())*100:.2f}%'
+survival_rate_TVL = f'{(enrollment["Grade 12 TVL"].sum() / enrollment["Grade 11 TVL"].sum())*100:.2f}%'
+survival_rate_sports = f'{(enrollment["Grade 12 SPORTS"].sum() / enrollment["Grade 11 SPORTS"].sum())*100:.2f}%'
+survival_rate_AnD = f'{(enrollment["Grade 12 A&D"].sum() / enrollment["Grade 11 A&D"].sum())*100:.2f}%'
+survival_rate_maritime = f'{(enrollment["Grade 12 MARITIME"].sum() / enrollment["Grade 11 MARITIME"].sum())*100:.2f}%'
+
+# Combine survival rates into a single DataFrame
+survival_rates = pd.DataFrame({
+    'Strand': ['ABM', 'HUMSS', 'STEM', 'GAS', 'TVL', 'SPORTS', 'A&D', 'MARITIME'],
+    'Survival Rate': [survival_rate_ABM, survival_rate_HUMSS, survival_rate_STEM, survival_rate_GAS, survival_rate_TVL, survival_rate_sports, survival_rate_AnD, survival_rate_maritime]
+}).sort_values(by='Survival Rate', ascending=False)
+
+print("\nSurvival rates of students per strand:")
+print(survival_rates)
